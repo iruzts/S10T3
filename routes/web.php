@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashController;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,5 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
-    return view('Dash.index');
-})->name('dash');
+Route::middleware(['auth:sanctum', 'verified'])-> get('/dash', [DashController::class, 'index']);
+Route::middleware(['auth:sanctum', 'verified'])-> get('/categoria', [CategoriaController::class, 'index']);
